@@ -37,12 +37,13 @@ In addition to standard items, we have a few special item types:
   its quality is always 80.</dd>
 
   <dt>Backstage passes</dt>
-  <dd>The item "Backstage passes to ..." increases in quality faster as its sell-in
-  value approaches: by 2 when there are ten days or less and by 3 when there
-  are five days or less, but drops to 0 after the concert.</dd>
+  <dd>The item "Backstage passes to ..." increases in quality faster as its
+  sell-in value approaches: by 2 when there are ten days or less and by 3 when
+  there are five days or less, but drops to 0 after the concert.</dd>
 
   <dt>Conjured</dt>
-  <dd>The item "Conjured" degrades in quality twice as fast as standard items.</dd>
+  <dd>The item "Conjured" degrades in quality twice as fast as standard
+  items.</dd>
 </dl>
 
 ### Code
@@ -62,7 +63,8 @@ has the following responsibilities:
 * Introduce separate update methods for differenent types of items.
 * Introduce a class responsible for updating the quality of an individual item.
 * Introduce sub-types and use inheritance to handle special cases.
-* Move the item creation logic to a separate class using the Factory design pattern.
+* Move the item creation logic to a separate class using the Factory design
+  pattern.
 
 ## Usage
 
