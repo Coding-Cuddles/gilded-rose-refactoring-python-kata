@@ -1,4 +1,5 @@
 class GildedRose:
+
     def __init__(self, items):
         self.items = items
 
@@ -36,4 +37,3 @@ class GildedRose:
                 else:
                     if item.quality < 50:
                         item.quality += 1
-
