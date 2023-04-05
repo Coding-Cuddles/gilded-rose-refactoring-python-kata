@@ -1,5 +1,4 @@
-from gilded_rose import GildedRose
-from item import Item
+from gilded_rose import GildedRose, Item
 
 
 def test_standard_item_quality_decreases_by_one_each_day():
@@ -48,7 +47,7 @@ def test_backstage_passes_quality_increases_by_one_each_day():
     assert items[0].quality == 21
 
 
-def test_backstage_passes_quality_increases_by_2_when_sell_in_is_10_days_or_less():
+def test_backstage_passes_quality_increases_by_2_when_sell_in_10_or_less():
     items = [
         Item(name="Backstage passes to a TAFKAL80ETC concert",
              sell_in=10,
@@ -59,7 +58,7 @@ def test_backstage_passes_quality_increases_by_2_when_sell_in_is_10_days_or_less
     assert items[0].quality == 26
 
 
-def test_backstage_passes_quality_increases_by_3_when_sell_in_is_5_days_or_less():
+def test_backstage_passes_quality_increases_by_3_when_sell_in_5_or_less():
     items = [
         Item(name="Backstage passes to a TAFKAL80ETC concert",
              sell_in=5,
@@ -88,13 +87,15 @@ def test_sulfuras_quality_and_sell_in_never_change():
     assert items[0].sell_in == 10
     assert items[0].quality == 80
 
+
 def test_quality_of_item_never_exceeds_50():
     items = [
         Item(name="Aged Brie", sell_in=10, quality=50),
-        Item(name="Backstage passes to a TAFKAL80ETC concert", sell_in=5, quality=49),
+        Item(name="Backstage passes to a TAFKAL80ETC concert",
+             sell_in=5,
+             quality=49),
     ]
     inventory = GildedRose(items)
     inventory.update_quality()
     assert items[0].quality == 50
     assert items[1].quality == 50
-
