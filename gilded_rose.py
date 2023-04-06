@@ -8,8 +8,11 @@ class Item:
 
 class GildedRose:
 
-    def __init__(self, items):
-        self.items = items
+    def __init__(self):
+        self.items = []
+
+    def add_item(self, name, sell_in, quality):
+        self.items.append(Item(name, sell_in, quality))
 
     def update_quality(self):
         for item in self.items:
