@@ -51,7 +51,7 @@ has the following responsibilities:
 
 ### Ideas for refactoring
 
-* Introduce separate update methods for differenent types of items.
+* Introduce separate update methods for different types of items.
 * Introduce a class responsible for updating the quality of an individual item.
 * Introduce sub-types and use inheritance to handle special cases.
 * Move the item creation logic to a separate class using the Factory design
