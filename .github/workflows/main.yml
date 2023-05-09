@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install poetry
+        run: pipx install poetry
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+          cache: 'poetry'
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Check formatting
+        run: |
+          source $(poetry env info --path)/bin/activate
+          make format-check
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install poetry
+        run: pipx install poetry
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+          cache: 'poetry'
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Run main
+        run: make run
+
+      - name: Test
+        run: |
+          source $(poetry env info --path)/bin/activate
+          make test
