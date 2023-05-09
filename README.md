@@ -1,6 +1,7 @@
 # Gilded Rose Refactoring Python Kata
 
-[![Run on Replit](https://replit.com/badge/github/Coding-Cuddles/gilded-rose-refactoring-python-kata)](https://replit.com/new/github/Coding-Cuddles/gilded-rose-refactoring-python-kata)
+[![CI](https://github.com/Coding-Cuddles/gilded-rose-refactoring-python-kata/actions/workflows/main.yml/badge.svg)](https://github.com/Coding-Cuddles/gilded-rose-refactoring-python-kata/actions/workflows/main.yml)
+[![Replit](https://replit.com/badge?caption=Try%20with%20Replit&variant=small)](https://replit.com/new/github/Coding-Cuddles/gilded-rose-refactoring-python-kata)
 
 ## Overview
 
