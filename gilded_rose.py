@@ -1,5 +1,4 @@
 class Item:
-
     def __init__(self, name, sell_in, quality):
         self.name = name
         self.sell_in = sell_in
@@ -7,7 +6,6 @@ class Item:
 
 
 class GildedRose:
-
     def __init__(self):
         self.items = []
 
@@ -16,7 +14,10 @@ class GildedRose:
 
     def update_quality(self):
         for item in self.items:
-            if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert":
+            if (
+                item.name != "Aged Brie"
+                and item.name != "Backstage passes to a TAFKAL80ETC concert"
+            ):
                 if item.quality > 0:
                     if item.name != "Sulfuras, Hand of Ragnaros":
                         item.quality -= 1
