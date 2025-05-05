@@ -1,23 +1,30 @@
-all: format-check test
+all: test
 
-SRCS := $(shell find . -name '*.py')
+UV := $(shell command -v uv 2> /dev/null)
+SRCS := $(shell git ls-files *.py)
 
-.PHONY: run
-run:
-	./main.py
+ifdef UV
+	RUNNER := uv run
+else
+	RUNNER :=
+endif
 
 .PHONY: test
 test:
-	pytest test_*.py
+	$(RUNNER) pytest test_*.py
 
 .PHONY: format
 format:
-	@yapf -i $(SRCS)
+	$(RUNNER) ruff format $(SRCS)
 
 .PHONY: format-check
 format-check:
-	@yapf --diff $(SRCS) \
+	$(RUNNER) ruff format --check $(SRCS) \
 		|| (echo "Some files require formatting. Run 'make format' to fix." && exit 1)
+
+.PHONY: clean
+clean:
+	git clean -Xfd
 
 ifndef VERBOSE
 .SILENT:

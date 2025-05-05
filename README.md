@@ -1,7 +1,6 @@
 # Gilded Rose Refactoring Python Kata
 
 [![CI](https://github.com/Coding-Cuddles/gilded-rose-refactoring-python-kata/actions/workflows/main.yml/badge.svg)](https://github.com/Coding-Cuddles/gilded-rose-refactoring-python-kata/actions/workflows/main.yml)
-[![Replit](https://replit.com/badge?caption=Try%20with%20Replit&variant=small)](https://replit.com/new/github/Coding-Cuddles/gilded-rose-refactoring-python-kata)
 
 ## Overview
 
@@ -29,14 +28,14 @@ once the sell-by date has passed, an item's quality degrades twice as fast.
 
 In addition to standard items, we have a few special item types:
 
-  * **Aged Brie**: The item "Aged Brie" increases in quality the older it gets.
-  * **Sulfuras**: The item "Sulfuras" is a legendary item that never has to be
-    sold, and its quality is always 80.
-  * **Backstage passes**. The item "Backstage passes to ..." increases in quality
-    faster as its sell-in value approaches: by 2 when there are ten days or less
-    and by 3 when there are five days or less, but drops to 0 after the concert.
-  * **Conjured**: The item "Conjured" degrades in quality twice as fast as
-    standard items.
+- **Aged Brie**: The item "Aged Brie" increases in quality the older it gets.
+- **Sulfuras**: The item "Sulfuras" is a legendary item that never has to be
+  sold, and its quality is always 80.
+- **Backstage passes**. The item "Backstage passes to ..." increases in quality
+  faster as its sell-in value approaches: by 2 when there are ten days or less
+  and by 3 when there are five days or less, but drops to 0 after the concert.
+- **Conjured**: The item "Conjured" degrades in quality twice as fast as
+  standard items.
 
 ### Code
 
@@ -44,35 +43,26 @@ The existing code violates the SRP principle by having a single `GildedRose`
 class for managing the inventory of items and updating their quality. The class
 has the following responsibilities:
 
-  * keep track of a list of `Item` objects;
-  * update the sell-in and quality values of each item;
-  * ensure that the quality of each item never goes below 0 or above 50;
-  * handle special cases for certain types of items (e.g., "Aged Brie,"
-    "Backstage passes to a TAFKAL80ETC concert").
+- keep track of a list of `Item` objects;
+- update the sell-in and quality values of each item;
+- ensure that the quality of each item never goes below 0 or above 50;
+- handle special cases for certain types of items (e.g., "Aged Brie,"
+  "Backstage passes to a TAFKAL80ETC concert").
 
 ### Ideas for refactoring
 
-* Introduce separate update methods for different types of items.
-* Introduce a class responsible for updating the quality of an individual item.
-* Introduce sub-types and use inheritance to handle special cases.
-* Move the item creation logic to a separate class using the Factory design
+- Introduce separate update methods for different types of items.
+- Introduce a class responsible for updating the quality of an individual item.
+- Introduce sub-types and use inheritance to handle special cases.
+- Move the item creation logic to a separate class using the Factory design
   pattern.
 
+## Prerequisites
+
+- [Python 3.8+](https://www.python.org/)
+- [pytest](https://pytest.org)
+
 ## Usage
-
-You can import this project into [Replit](https://replit.com), and it will
-handle all dependencies automatically.
-
-### Prerequisites
-
-* [Python 3.8+](https://www.python.org/)
-* [pytest](https://pytest.org)
-
-### Run main
-
-```console
-make run
-```
 
 ### Run tests
 

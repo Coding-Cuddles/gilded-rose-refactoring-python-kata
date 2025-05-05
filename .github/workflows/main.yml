@@ -11,49 +11,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Install poetry
-        run: pipx install poetry
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v4
         with:
-          python-version: '3.8'
-          cache: 'poetry'
+          python-version: "3.8"
 
-      - name: Install dependencies
-        run: poetry install
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "latest"
 
       - name: Check formatting
-        run: |
-          source $(poetry env info --path)/bin/activate
-          make format-check
+        run: make format-check
 
   test:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Install poetry
-        run: pipx install poetry
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v4
         with:
-          python-version: '3.8'
-          cache: 'poetry'
+          python-version: "3.8"
 
-      - name: Install dependencies
-        run: poetry install
-
-      - name: Run main
-        run: make run
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "latest"
 
       - name: Test
-        run: |
-          source $(poetry env info --path)/bin/activate
-          make test
+        run: make test
