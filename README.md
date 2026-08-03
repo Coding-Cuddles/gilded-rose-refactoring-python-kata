@@ -6,7 +6,8 @@
 
 ## Overview
 
-This kata complements [Clean Code: SOLID Principles, Ep. 9 - The Single Responsibility Principle](https://cleancoders.com/episode/clean-code-episode-9).
+This kata complements [Clean Code, Ep. 9: The Single Responsibility
+Principle](https://cleancoders.com/episode/clean-code-episode-9).
 
 This implementation of the Gilded Rose Kata in Python focuses on practicing the
 Single Responsibility Principle (SRP). This kata aims to refactor the existing
