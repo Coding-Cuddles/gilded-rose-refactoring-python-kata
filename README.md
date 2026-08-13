@@ -4,6 +4,9 @@
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
+Refactor the existing Gilded Rose implementation while preserving its
+inventory behavior. Setup is complete when the characterization tests pass.
+
 ## Overview
 
 This kata complements [Clean Code: SOLID Principles, Ep. 9 - The Single Responsibility Principle](https://cleancoders.com/episode/clean-code-episode-9).
@@ -33,9 +36,9 @@ In addition to standard items, we have a few special item types:
 - **Aged Brie**: The item "Aged Brie" increases in quality the older it gets.
 - **Sulfuras**: The item "Sulfuras" is a legendary item that never has to be
   sold, and its quality is always 80.
-- **Backstage passes**. The item "Backstage passes to ..." increases in quality
-  faster as its sell-in value approaches: by 2 when there are ten days or less
-  and by 3 when there are five days or less, but drops to 0 after the concert.
+- **Backstage passes**: The item "Backstage passes to ..." increases in quality
+  faster as its sell-in value approaches: by 2 when there are ten days or fewer
+  and by 3 when there are five days or fewer, but drops to 0 after the concert.
 - **Conjured**: The item "Conjured" degrades in quality twice as fast as
   standard items.
 
@@ -58,8 +61,6 @@ has the following responsibilities:
 - Introduce sub-types and use inheritance to handle special cases.
 - Move the item creation logic to a separate class using the Factory design
   pattern.
-
-Setup is complete when the existing test suite passes.
 
 ## Prerequisites
 
